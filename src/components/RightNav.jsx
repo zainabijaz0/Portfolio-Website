@@ -89,8 +89,9 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
             {/* Resume download */}
             <li>
               <a
-                href="/resume.pdf"
-                download
+                href="https://cdn.builder.io/o/assets%2F6b324b93e5b14ce98e023877f74fee60%2F401928e148f74147b69e09cce45c4ef5?alt=media&token=8b16cb9b-7d3a-4435-a8fe-b7f2d26ab013&apiKey=6b324b93e5b14ce98e023877f74fee60"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Resume"
                 className={itemBase}
               >
