@@ -129,20 +129,6 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
               {sr('Toggle theme')}
             </button>
 
-            <button
-              type="button"
-              aria-pressed={pinned}
-              aria-label={pinned ? 'Collapse sidebar' : 'Expand sidebar'}
-              onClick={() => setPinned((v) => !v)}
-              className={`${itemBase}`}
-            >
-              <div className="h-5 w-5 rounded-sm border border-gray-300 dark:border-gray-700 flex items-center justify-center text-xs">
-                {pinned ? '−' : '+'}
-              </div>
-              <span className={`truncate ${expanded || pinned ? 'block' : 'hidden'}`}>{pinned ? 'Collapse' : 'Expand'}</span>
-              <span className={`${tooltipBase} ${expanded || pinned ? 'hidden' : 'block'}`}>{pinned ? 'Collapse' : 'Expand'}</span>
-              {sr(pinned ? 'Collapse sidebar' : 'Expand sidebar')}
-            </button>
           </div>
         </div>
       </nav>
