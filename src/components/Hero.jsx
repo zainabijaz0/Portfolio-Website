@@ -55,14 +55,14 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start items-start mb-10 sm:mb-14">
               <Button
                 onClick={() => scrollToSection('#projects')}
-                className="w-auto min-w-[220px] bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                className="w-auto min-w-[300px] bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 View Projects
               </Button>
               <Button
                 onClick={() => scrollToSection('#contact')}
                 variant="outline"
-                className="w-auto min-w-[220px] border-2 border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-600 hover:text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                className="w-auto min-w-[300px] border-2 border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-600 hover:text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 Contact Me
               </Button>
