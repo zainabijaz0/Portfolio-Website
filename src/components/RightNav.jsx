@@ -117,7 +117,7 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
               type="button"
               aria-label={darkMode ? 'Light theme' : 'Dark theme'}
               onClick={toggleDarkMode}
-              className={`${itemBase} justify-start`}
+              className={`${itemBase}`}
             >
               {darkMode ? (
                 <Sun className="h-5 w-5" aria-hidden="true" />
@@ -134,7 +134,7 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
               aria-pressed={pinned}
               aria-label={pinned ? 'Collapse sidebar' : 'Expand sidebar'}
               onClick={() => setPinned((v) => !v)}
-              className={`${itemBase} justify-start`}
+              className={`${itemBase}`}
             >
               <div className="h-5 w-5 rounded-sm border border-gray-300 dark:border-gray-700 flex items-center justify-center text-xs">
                 {pinned ? '−' : '+'}
