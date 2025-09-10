@@ -52,17 +52,17 @@ const Hero = () => {
               <span className="block mt-2 text-purple-700 dark:text-purple-300 font-bold">& Full-Stack Developer</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start mb-10 sm:mb-14">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start items-start mb-10 sm:mb-14">
               <Button
                 onClick={() => scrollToSection('#projects')}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 View Projects
               </Button>
               <Button
                 onClick={() => scrollToSection('#contact')}
                 variant="outline"
-                className="border-2 border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-600 hover:text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                className="w-full sm:w-auto border-2 border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-600 hover:text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 Contact Me
               </Button>
@@ -104,7 +104,7 @@ const Hero = () => {
           </div>
 
           {/* Right: Visual (Terminal card) */}
-          <div className="w-full flex justify-center md:justify-end">
+          <div className="w-full flex justify-center md:justify-end md:mt-6 lg:mt-10">
             <div
               className="mt-0 sm:mt-4 max-w-sm sm:max-w-md bg-gray-900 rounded-2xl shadow-2xl border border-gray-700 overflow-hidden cursor-pointer transform hover:scale-105 motion-safe:transition-all motion-safe:duration-300 motion-reduce:transition-none"
               onClick={openTerminal}
