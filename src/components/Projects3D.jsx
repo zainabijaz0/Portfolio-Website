@@ -199,6 +199,8 @@ const Projects3D = () => {
     }
   ];
 
+  const angleStep = 360 / projects.length;
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -269,9 +271,10 @@ const Projects3D = () => {
     const handleEnd = () => {
       if (isDragging) {
         setIsDragging(false);
-        // Snap to nearest project (45 degrees per project for 8 projects)
-        const snapAngle = Math.round((rotation || 0) / 45) * 45;
-        const targetProject = Math.abs(Math.round((rotation || 0) / 45)) % projects.length;
+        // Snap to nearest project dynamically
+        const snapAngle = Math.round((rotation || 0) / angleStep) * angleStep;
+        const rawIndex = Math.round((-(snapAngle)) / angleStep);
+        const targetProject = ((rawIndex % projects.length) + projects.length) % projects.length;
         setRotation(snapAngle);
         setCurrentProject(targetProject);
       }
@@ -302,7 +305,7 @@ const Projects3D = () => {
     setIsTransitioning(true);
     const newIndex = (currentProject + 1) % projects.length;
     setCurrentProject(newIndex);
-    setRotation(prev => (prev || 0) - 45); // 360 / 8 projects = 45 degrees per project
+    setRotation(prev => (prev || 0) - angleStep);
     setTimeout(() => {
       setIsTransitioning(false);
     }, 500);
@@ -313,7 +316,7 @@ const Projects3D = () => {
     setIsTransitioning(true);
     const newIndex = (currentProject - 1 + projects.length) % projects.length;
     setCurrentProject(newIndex);
-    setRotation(prev => (prev || 0) + 45);
+    setRotation(prev => (prev || 0) + angleStep);
     setTimeout(() => {
       setIsTransitioning(false);
     }, 500);
@@ -323,9 +326,11 @@ const Projects3D = () => {
     if (index === currentProject || isTransitioning) return;
     setIsTransitioning(true);
     setCurrentProject(index);
-    const direction = index > currentProject ? -1 : 1;
-    const steps = Math.abs(index - currentProject);
-    setRotation(prev => prev + (direction * steps * 45));
+    const forward = (index - currentProject + projects.length) % projects.length;
+    const backward = (currentProject - index + projects.length) % projects.length;
+    const direction = forward <= backward ? -1 : 1;
+    const steps = Math.min(forward, backward);
+    setRotation(prev => prev + (direction * steps * angleStep));
     setIsAutoPlaying(false);
     setTimeout(() => {
       setIsTransitioning(false);
@@ -403,8 +408,10 @@ const Projects3D = () => {
               }}
             >
               {projects.map((project, index) => {
-                const angle = (index * 45) * (Math.PI / 180); // 45 degrees between cards for 8 projects
-                const radius = window.innerWidth > 768 ? 280 : window.innerWidth > 640 ? 180 : 160; // Reduced radius for smaller cards
+                const angle = (index * angleStep) * (Math.PI / 180);
+                const baseRadius = window.innerWidth > 768 ? 280 : window.innerWidth > 640 ? 180 : 160;
+                const radiusScale = Math.max(1, projects.length / 8);
+                const radius = baseRadius * radiusScale;
                 const x = isNaN(Math.sin(angle)) ? 0 : Math.sin(angle) * radius;
                 const z = isNaN(Math.cos(angle)) ? 0 : Math.cos(angle) * radius;
                 const isActive = index === currentProject;
