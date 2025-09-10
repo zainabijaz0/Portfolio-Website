@@ -38,7 +38,7 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
   }, [pinned]);
 
   const baseContainer = `
-    fixed right-0 top-0 h-screen z-[2000] hidden sm:flex
+    fixed right-0 top-0 h-screen z-[1000001] hidden sm:flex pointer-events-auto
     motion-safe:transition-all motion-safe:duration-200 motion-reduce:transition-none
     `;
 
