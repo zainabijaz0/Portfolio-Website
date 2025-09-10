@@ -80,7 +80,7 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
         onMouseEnter={() => !pinned && setExpanded(true)}
         onMouseLeave={() => !pinned && setExpanded(false)}
       >
-        <div className="flex h-full w-full flex-col items-stretch justify-between bg-white/80 dark:bg-gray-900/70 backdrop-blur-md border-l border-gray-200 dark:border-gray-800">
+        <div className="flex h-full w-full flex-col items-stretch justify-between bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-l border-gray-200 dark:border-gray-800 shadow-xl">
           {/* Top section */}
           <ul className="mt-20 flex flex-col gap-1 px-2">
             {items.map((it) => (
