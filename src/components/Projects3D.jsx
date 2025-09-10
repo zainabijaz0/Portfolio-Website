@@ -19,6 +19,25 @@ const Projects3D = () => {
 
   const projects = [
     {
+      title: 'Wellbeing First Care',
+      description: 'Wellbeing First Care — React front-end (Vite), TailwindCSS, responsive UI and serverless contact forms for NDIS support services.',
+      image: 'https://image.thum.io/get/width/800/https://www.wellbeingfirstcare.com/',
+      technologies: ['React', 'TailwindCSS', 'Vite', 'Express.js'],
+      features: [
+        'Responsive UI for NDIS services',
+        'Serverless contact forms',
+        'Optimized performance with Vite',
+        'Accessible design and routing'
+      ],
+      liveUrl: 'https://www.wellbeingfirstcare.com/',
+      githubUrl: 'https://github.com/mabdullahuzair/Wellbeing-First-Care',
+      status: 'Completed',
+      rating: 4.7,
+      year: '2024',
+      gradient: 'from-sky-500 via-cyan-500 to-emerald-500',
+      category: 'Professional Web'
+    },
+    {
       title: 'MacroMate',
       description: 'AI-powered health and fitness web application designed as my Final Year Project. Features intelligent meal recommendations and comprehensive nutrition tracking with machine learning algorithms.',
       image: '/api/placeholder/600/400',
