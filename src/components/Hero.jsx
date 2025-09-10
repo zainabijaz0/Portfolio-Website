@@ -24,83 +24,89 @@ const Hero = () => {
 
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 md:pt-32 lg:pt-20">
+    <section id="hero" className="min-h-screen flex items-center justify-start relative overflow-hidden pt-24 md:pt-32 lg:pt-20 pr-16 md:pr-20 lg:pr-24">
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-6 sm:mb-8 leading-tight px-4 cursor-default transform transition-all duration-500"
-              style={{
-                fontFamily: "'Playfair Display', 'Crimson Text', 'Cormorant Garamond', serif",
-                fontWeight: 800,
-                letterSpacing: '-0.02em',
-              }}
-          >
-            <span className="inline-block transform transition-all duration-300 text-transparent bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 dark:from-purple-400 dark:via-blue-400 dark:to-cyan-400 bg-clip-text"
-                  style={{
-                    textShadow: '0 4px 8px rgba(0,0,0,0.3)',
-                    WebkitTextStroke: '1px rgba(147, 51, 234, 0.3)',
-                  }}>
-              Muhammad Abdullah
-            </span>
-          </h1>
-          
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 dark:text-gray-200 mb-8 sm:mb-10 max-w-4xl mx-auto px-4 font-medium">
-            <span className="block">Software Engineering Student</span>
-            <span className="block mt-2 text-purple-700 dark:text-purple-300 font-bold">& Full-Stack Developer</span>
-          </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {/* Left: Text */}
+          <div className="text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-6 sm:mb-8 leading-tight cursor-default transform transition-all duration-500"
+                style={{
+                  fontFamily: "'Playfair Display', 'Crimson Text', 'Cormorant Garamond', serif",
+                  fontWeight: 800,
+                  letterSpacing: '-0.02em',
+                }}
+            >
+              <span className="inline-block transform transition-all duration-300 text-transparent bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 dark:from-purple-400 dark:via-blue-400 dark:to-cyan-400 bg-clip-text"
+                    style={{
+                      textShadow: '0 4px 8px rgba(0,0,0,0.3)',
+                      WebkitTextStroke: '1px rgba(147, 51, 234, 0.3)',
+                    }}>
+                Muhammad Abdullah
+              </span>
+            </h1>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-10 sm:mb-14 px-4">
-            <Button
-              onClick={() => scrollToSection('#projects')}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25"
-            >
-              View Projects
-            </Button>
-            <Button
-              onClick={() => scrollToSection('#contact')}
-              variant="outline"
-              className="border-2 border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-600 hover:text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300"
-            >
-              Contact Me
-            </Button>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 dark:text-gray-200 mb-8 sm:mb-10 max-w-2xl font-medium">
+              <span className="block">Software Engineering Student</span>
+              <span className="block mt-2 text-purple-700 dark:text-purple-300 font-bold">& Full-Stack Developer</span>
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start mb-10 sm:mb-14">
+              <Button
+                onClick={() => scrollToSection('#projects')}
+                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              >
+                View Projects
+              </Button>
+              <Button
+                onClick={() => scrollToSection('#contact')}
+                variant="outline"
+                className="border-2 border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-600 hover:text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              >
+                Contact Me
+              </Button>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex justify-start space-x-4 sm:space-x-6 mb-8 sm:mb-12">
+              <a
+                href="https://github.com/mabdullahuzair"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="group bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-110 hover:-translate-y-2 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              >
+                <Github size={20} className="sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300 group-hover:text-purple-600 transition-colors duration-300" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/abdullah-uzair-2a18b9278/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="group bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-110 hover:-translate-y-2 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              >
+                <Linkedin size={20} className="sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 transition-colors duration-300" />
+              </a>
+              <a
+                href="mailto:abdullahuzair860@gmail.com"
+                aria-label="Email"
+                className="group bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-110 hover:-translate-y-2 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              >
+                <Mail size={20} className="sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300 group-hover:text-green-600 transition-colors duration-300" />
+              </a>
+            </div>
+
+            {/* Scroll Indicator */}
+            <div className="animate-bounce md:hidden">
+              <ArrowDown size={32} className="text-gray-400" />
+            </div>
           </div>
 
-          {/* Social Links */}
-          <div className="flex justify-center space-x-4 sm:space-x-6 mb-8 sm:mb-12 px-4">
-            <a 
-              href="https://github.com/mabdullahuzair" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-110 hover:-translate-y-2 transition-all duration-300"
-            >
-              <Github size={20} className="sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300 group-hover:text-purple-600 transition-colors duration-300" />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/abdullah-uzair-2a18b9278/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-110 hover:-translate-y-2 transition-all duration-300"
-            >
-              <Linkedin size={20} className="sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 transition-colors duration-300" />
-            </a>
-            <a 
-              href="mailto:abdullahuzair860@gmail.com"
-              className="group bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-110 hover:-translate-y-2 transition-all duration-300"
-            >
-              <Mail size={20} className="sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300 group-hover:text-green-600 transition-colors duration-300" />
-            </a>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="animate-bounce">
-            <ArrowDown size={32} className="text-gray-400 mx-auto" />
-          </div>
-
-          {/* Small Terminal Window in Hero */}
-          <div className="mt-8 sm:mt-12 max-w-sm sm:max-w-md mx-auto px-4">
-            <div 
-              className="bg-gray-900 rounded-2xl shadow-2xl border border-gray-700 overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
+          {/* Right: Visual (Terminal card) */}
+          <div className="w-full flex justify-center md:justify-end">
+            <div
+              className="mt-0 sm:mt-4 max-w-sm sm:max-w-md bg-gray-900 rounded-2xl shadow-2xl border border-gray-700 overflow-hidden cursor-pointer transform hover:scale-105 motion-safe:transition-all motion-safe:duration-300 motion-reduce:transition-none"
               onClick={openTerminal}
             >
               {/* Terminal Header */}
@@ -118,12 +124,12 @@ const Hero = () => {
                     e.stopPropagation();
                     openTerminal();
                   }}
-                  className="text-gray-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-mono"
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-mono focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
                   Open Full Terminal
                 </button>
               </div>
-              
+
               {/* Terminal Content */}
               <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm">
                 <div className="text-green-400 mb-1 sm:mb-2">$ whoami</div>
