@@ -19,6 +19,14 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
   const [pinned, setPinned] = useState(false);
   const navRef = useRef(null);
 
+  // Default expanded & pinned on desktop
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth >= 640) {
+      setPinned(true);
+      setExpanded(true);
+    }
+  }, []);
+
   // Collapse on outside click if not pinned
   useEffect(() => {
     const onDocClick = (e) => {
