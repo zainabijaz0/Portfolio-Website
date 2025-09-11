@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function useDockPosition(threshold = 80) {
+export default function useDockPosition(threshold = 220) {
   const [isBottom, setIsBottom] = useState(false);
 
   useEffect(() => {
