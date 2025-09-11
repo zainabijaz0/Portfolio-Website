@@ -19,13 +19,8 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
   const [pinned, setPinned] = useState(false);
   const navRef = useRef(null);
 
-  // Default expanded & pinned on desktop
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.innerWidth >= 640) {
-      setPinned(true);
-      setExpanded(true);
-    }
-  }, []);
+  // Default collapsed, icon-only
+  useEffect(() => {}, []);
 
   // Collapse on outside click if not pinned
   useEffect(() => {
@@ -42,19 +37,18 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
     motion-safe:transition-all motion-safe:duration-200 motion-reduce:transition-none
     `;
 
-  const widthClass = expanded || pinned ? 'w-56' : 'w-14';
+  const widthClass = 'w-12';
 
   const itemBase = `
-    group relative w-full flex items-center gap-3 rounded-xl
-    px-3 py-2 text-sm text-gray-700 dark:text-gray-200
-    hover:bg-gray-100 dark:hover:bg-gray-800
+    group relative mx-auto my-1 w-10 h-10 flex items-center justify-center rounded-2xl
+    text-gray-300 hover:text-white bg-transparent hover:bg-white/10 backdrop-blur-sm
     focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500
-    motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none
+    transform-gpu motion-safe:transition-all motion-safe:duration-200 motion-reduce:transition-none
   `;
 
   const tooltipBase = `
     pointer-events-none absolute right-full mr-2 whitespace-nowrap rounded-md
-    bg-gray-900 text-white text-xs px-2 py-1 shadow-lg
+    bg-gray-900/80 text-white text-xs px-2 py-1 shadow-lg backdrop-blur-sm
     opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0
     group-focus-visible:opacity-100 group-focus-visible:translate-x-0
     motion-safe:transition-all motion-safe:duration-150 motion-reduce:transition-none
@@ -68,10 +62,9 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
         className={itemBase}
         tabIndex={0}
       >
-        <Icon className="h-5 w-5 shrink-0" aria-hidden="true" />
-        <span className={`truncate ${expanded || pinned ? 'block' : 'hidden'}`}>{label}</span>
-        {/* Tooltip label when collapsed */}
-        <span className={`${tooltipBase} ${expanded || pinned ? 'hidden' : 'block'}`}>{label}</span>
+        <Icon className="h-5 w-5 shrink-0 transform-gpu transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-6" aria-hidden="true" />
+        <span className="sr-only">{label}</span>
+        <span className={`${tooltipBase}`}>{label}</span>
         {sr(label)}
       </a>
     </li>
@@ -88,9 +81,9 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
         onMouseEnter={() => !pinned && setExpanded(true)}
         onMouseLeave={() => !pinned && setExpanded(false)}
       >
-        <div className="flex h-full w-full flex-col items-stretch justify-between bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-l border-gray-200 dark:border-gray-800 shadow-2xl ring-1 ring-purple-500/30">
+        <div className="flex h-full w-full flex-col items-stretch justify-between bg-transparent backdrop-blur-0">
           {/* Top section */}
-          <ul className="mt-20 flex flex-col gap-1 px-2">
+          <ul className="mt-24 flex flex-col gap-1 px-1">
             {items.map((it) => (
               <NavItem key={it.id} icon={it.icon} label={it.label} href={it.href} />
             ))}
@@ -103,16 +96,16 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
                 aria-label="Resume"
                 className={itemBase}
               >
-                <FileDown className="h-5 w-5" aria-hidden="true" />
-                <span className={`truncate ${expanded || pinned ? 'block' : 'hidden'}`}>Resume</span>
-                <span className={`${tooltipBase} ${expanded || pinned ? 'hidden' : 'block'}`}>Resume</span>
+                <FileDown className="h-5 w-5 transform-gpu transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-6" aria-hidden="true" />
+                <span className="sr-only">Resume</span>
+                <span className={`${tooltipBase}`}>Resume</span>
                 {sr('Resume download')}
               </a>
             </li>
           </ul>
 
           {/* Bottom controls */}
-          <div className="mb-6 px-2 flex flex-col gap-2">
+          <div className="mb-6 px-1 flex flex-col gap-2">
             <button
               type="button"
               aria-label={darkMode ? 'Light theme' : 'Dark theme'}
@@ -120,12 +113,12 @@ const RightNav = ({ darkMode, toggleDarkMode }) => {
               className={`${itemBase}`}
             >
               {darkMode ? (
-                <Sun className="h-5 w-5" aria-hidden="true" />
+                <Sun className="h-5 w-5 transform-gpu transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-6" aria-hidden="true" />
               ) : (
-                <Moon className="h-5 w-5" aria-hidden="true" />
+                <Moon className="h-5 w-5 transform-gpu transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-6" aria-hidden="true" />
               )}
-              <span className={`truncate ${expanded || pinned ? 'block' : 'hidden'}`}>Theme</span>
-              <span className={`${tooltipBase} ${expanded || pinned ? 'hidden' : 'block'}`}>Theme</span>
+              <span className="sr-only">Theme</span>
+              <span className={`${tooltipBase}`}>Theme</span>
               {sr('Toggle theme')}
             </button>
 
