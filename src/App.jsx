@@ -15,7 +15,7 @@ import CursorTrail from './components/CursorTrail';
 import './App.css';
 
 function App() {
-  const [showLoading, setShowLoading] = useState(true);
+  const [showLoading, setShowLoading] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
