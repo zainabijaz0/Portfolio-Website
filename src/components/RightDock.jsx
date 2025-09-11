@@ -50,7 +50,7 @@ const DockButton = ({ href, label, Icon, onClick, reduced }) => {
     };
   }, [reduced]);
 
-  const className = 'group relative mx-auto w-11 h-11 flex items-center justify-center rounded-2xl text-gray-200 hover:text-white bg-white/10 hover:bg-white/15 dark:bg-white/10 dark:hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 shadow-[0_6px_20px_rgba(0,0,0,0.35)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.45),0_6px_18px_rgba(125,90,255,0.14)] backdrop-blur-md will-change-transform';
+  const className = 'group relative mx-auto w-12 h-12 flex items-center justify-center rounded-2xl text-gray-100 hover:text-white bg-white/12 hover:bg-white/20 dark:bg-white/10 dark:hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 shadow-[0_6px_20px_rgba(0,0,0,0.35)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_6px_18px_rgba(125,90,255,0.18)] backdrop-blur-md will-change-transform';
 
   return (
     <a ref={ref} href={href} aria-label={label} onClick={onClick} className={className} style={style} tabIndex={0}>
@@ -66,10 +66,10 @@ const RightDock = ({ darkMode, toggleDarkMode }) => {
   const { layout, isBottom } = useDockPosition();
 
   const containerCommon = 'fixed z-[1000001] pointer-events-auto select-none';
-  const glass = 'rounded-xl border border-white/20 bg-black/24 dark:bg-black/24 backdrop-blur-md shadow-xl shadow-black/40';
+  const glass = 'rounded-xl border border-white/30 bg-black/30 dark:bg-black/30 backdrop-blur-md shadow-2xl shadow-black/50 ring-1 ring-cyan-400/25';
 
   const variants = useMemo(() => ({
-    right: { right: 0, top: 0, x: 0, y: 0 },
+    right: { right: 12, top: 0, x: 0, y: 0 },
     bottom: { left: '50%', bottom: 12, x: '-50%', y: 0 },
   }), []);
 
