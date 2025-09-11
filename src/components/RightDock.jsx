@@ -65,7 +65,7 @@ const RightDock = ({ darkMode, toggleDarkMode }) => {
   const reduced = useReducedMotion();
   const { layout, isBottom } = useDockPosition();
 
-  const containerCommon = 'fixed z-[1000001] pointer-events-auto select-none hidden sm:block';
+  const containerCommon = 'fixed z-[1000001] pointer-events-auto select-none block';
   const glass = 'rounded-xl border border-white/30 bg-black/30 dark:bg-black/30 backdrop-blur-md shadow-2xl shadow-black/50 ring-1 ring-cyan-400/25';
 
   const transition = reduced ? { duration: 0 } : { type: 'spring', stiffness: 120, damping: 18 };
