@@ -66,7 +66,7 @@ const RightDock = ({ darkMode, toggleDarkMode }) => {
   const { layout, isBottom } = useDockPosition();
 
   const containerCommon = 'fixed z-[1000001] pointer-events-auto select-none';
-  const glass = 'rounded-xl border border-white/10 bg-black/18 dark:bg-black/18 backdrop-blur-md';
+  const glass = 'rounded-xl border border-white/20 bg-black/24 dark:bg-black/24 backdrop-blur-md shadow-xl shadow-black/40';
 
   const variants = useMemo(() => ({
     right: { right: 0, top: 0, x: 0, y: 0 },
