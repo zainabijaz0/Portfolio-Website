@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import LoadingScreen from './components/LoadingScreen';
-import RightNav from './components/RightNav.jsx';
+import RightDock from './components/RightDock.jsx';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -146,7 +146,7 @@ function App() {
     <div className="min-h-screen bg-gray-200 dark:bg-gray-900 transition-colors duration-300 relative">
       <StarfieldBackground />
       <CursorTrail />
-      <RightNav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <RightDock darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <main className="relative z-10">
         <Hero />
         <About />
