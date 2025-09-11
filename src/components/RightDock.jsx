@@ -65,15 +65,14 @@ const RightDock = ({ darkMode, toggleDarkMode }) => {
   const reduced = useReducedMotion();
   const { layout, isBottom } = useDockPosition();
 
-  const containerCommon = 'fixed z-[1000001] pointer-events-auto select-none';
+  const containerCommon = 'fixed z-[1000001] pointer-events-auto select-none hidden sm:block';
   const glass = 'rounded-xl border border-white/30 bg-black/30 dark:bg-black/30 backdrop-blur-md shadow-2xl shadow-black/50 ring-1 ring-cyan-400/25';
 
-  const variants = useMemo(() => ({
-    right: { right: 12, top: 0, x: 0, y: 0 },
-    bottom: { left: '50%', bottom: 12, x: '-50%', y: 0 },
-  }), []);
-
   const transition = reduced ? { duration: 0 } : { type: 'spring', stiffness: 120, damping: 18 };
+
+  const positionClass = isBottom
+    ? 'bottom-3 left-1/2 -translate-x-1/2 w-[min(92%,28rem)] px-2 py-1'
+    : 'right-3 top-0 h-screen w-14 px-1 py-16';
 
   return (
     <>
@@ -81,14 +80,12 @@ const RightDock = ({ darkMode, toggleDarkMode }) => {
       <motion.nav
         role="navigation"
         aria-label="Primary"
-        className={`${containerCommon} ${glass} ${isBottom ? 'px-2 py-1' : 'px-1 py-16'} ${isBottom ? 'w-[min(92%,28rem)] left-1/2 -translate-x-1/2' : ''} hidden md:block`}
-        initial={layout}
-        animate={layout}
-        variants={variants}
+        className={`${containerCommon} ${glass} ${positionClass}`}
+        layout
         transition={transition}
-        style={{ width: isBottom ? undefined : NAV_WIDTH, height: isBottom ? undefined : '100vh' }}
+        style={{ willChange: 'transform, opacity' }}
       >
-        <ul className={`flex ${isBottom ? 'flex-row items-center gap-2' : 'flex-col items-center gap-2'} w-full h-full justify-${isBottom ? 'center' : 'start'} ${isBottom ? '' : 'pt-20'}`}>
+        <ul className={`flex ${isBottom ? 'flex-row items-center gap-2' : 'flex-col items-center gap-2'} w-full h-full ${isBottom ? 'justify-center' : 'justify-start pt-20'}`}>
           {items.map((it) => (
             <li key={it.id} className="contents">
               <DockButton href={it.href} label={it.label} Icon={it.icon} reduced={reduced} />
